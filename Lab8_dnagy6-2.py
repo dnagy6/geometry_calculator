@@ -13,7 +13,7 @@ Description: A menu-driven program that imports custom
 def get_positive_number(prompt):
     while True:
         try:
-            value = get_positive_number(prompt)
+            value = float(input(prompt))
             if value > 0:
                 return value
             else:
