@@ -1,3 +1,13 @@
+"""
+---------------------------------------------------------
+Name: Dakota Nagy
+Date: June 17, 2026
+Description: A module containing math functions to 
+             calculate the area and circumference of a 
+             circle.
+---------------------------------------------------------
+"""
+
 import math
 
 def calc_area(radius):
