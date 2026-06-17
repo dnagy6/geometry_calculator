@@ -8,8 +8,22 @@ Description: A menu-driven program that imports custom
              circumference of circles and rectangles.
 ---------------------------------------------------------
 """
+# Below is a validation challenge. The length, width, circumferenc, and radius must be positive numbers. If the user enters a negative number or zero, the program should display an error message and prompt the user to enter a valid positive number.
+
+def get_positive_number(prompt):
+    while True:
+        try:
+            value = get_positive_number(prompt)
+            if value > 0:
+                return value
+            else:
+                print("Error: Please enter a positive number.")
+        except ValueError:
+            #If the user types text instead of a number, it will catch the error and display an error.
+            print("Error: Invalid input. Please enter a numeric value.")
 
 # We use aliases (as c, as r) because both modules contain a function named 'calc_area'. By using aliases, we can avoid naming conflicts and clearly indicate which module's function we are calling.
+
 import circle as c
 import rectangle as r
 
@@ -28,21 +42,21 @@ while user_choice != "5":
     user_choice = input("Enter your choice (1-5): ")
 
     if user_choice == "1":
-        radius = float(input("Enter the radius of the circle: "))
+        radius = get_positive_number("Enter the radius of the circle: ")
         area = c.calc_area(radius) # 'c' tells it to look in circle.py
         print(f"The area of the circle is: {area:.2f}")
     elif user_choice == "2":
-        radius = float(input("Enter the radius of the circle: "))
+        radius = get_positive_number("Enter the radius of the circle: ")
         circumference = c.calc_circumference(radius) # 'c' tells it to look in circle.py
         print(f"The circumference of the circle is: {circumference:.2f}")
     elif user_choice == "3":
-        length = float(input("Enter the length of the rectangle: "))
-        width = float(input("Enter the width of the rectangle: "))
+        length = get_positive_number("Enter the length of the rectangle: ")
+        width = get_positive_number("Enter the width of the rectangle: ")
         area = r.calc_area(length, width) # 'r' tells it to look in rectangle.py
         print(f"The area of the rectangle is: {area:.2f}")
     elif user_choice == "4":
-        length = float(input("Enter the length of the rectangle: "))
-        width = float(input("Enter the width of the rectangle: "))
+        length = get_positive_number("Enter the length of the rectangle: ")
+        width = get_positive_number("Enter the width of the rectangle: ")
         perimeter = r.calc_perimeter(length, width)
         print(f"The perimeter of the rectangle is: {perimeter:.2f}")
     elif user_choice == "5":
